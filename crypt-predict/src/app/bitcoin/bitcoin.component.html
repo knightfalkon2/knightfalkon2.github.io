@@ -1,4 +1,13 @@
-<p>
-  Here is a string {{stringBit}}
-  <button (click)="getCurrentBitcoin()">click me!</button>
-</p>
+<!-- <select onchange="this.selected.call(this, event)"> -->
+ 
+<!-- <select (change)="this.selected('USD')"> 
+  <option *ngFor="let currency of currencies" value="{{currency}}">{{currency}}</option>
+</select> -->
+
+<select [(ngModel)]="curSelect"
+(ngModelChange)="selected($event)"> 
+    <option *ngFor="let currency of currencies" [ngValue]="currency">{{currency}}</option> 
+</select>
+
+<p id="output" #output >Here is your text</p>
+
