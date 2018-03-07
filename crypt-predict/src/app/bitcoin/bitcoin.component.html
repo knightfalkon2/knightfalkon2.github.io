@@ -3,11 +3,13 @@
 <!-- <select (change)="this.selected('USD')"> 
   <option *ngFor="let currency of currencies" value="{{currency}}">{{currency}}</option>
 </select> -->
-
-<select [(ngModel)]="curSelect"
+<div class="text-center">
+<p>Select your currency to see the bitcoin value</p>  
+<select style="color: black" [(ngModel)]="curSelect"
 (ngModelChange)="selected($event)"> 
-    <option *ngFor="let currency of currencies" [ngValue]="currency">{{currency}}</option> 
+    <option style="color:black" *ngFor="let currency of currencies" [ngValue]="currency">{{currency}}</option> 
 </select>
+<input style="width:100px; height:19px; color: black" type="text" disabled value="{{symbol}}{{bitValue}}">
 
-<p id="output" #output >Here is your text</p>
+</div>
 

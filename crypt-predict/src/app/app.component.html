@@ -1,16 +1,18 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
+<body>
+<div class="text-center">
 
     <h1>
-        Welcome to {{title}}!
+        {{title}}
     </h1>
-  <a routerLink="bitcoin">Bitcoin</a>
-  <a routerLink="stocks">Stocks</a>
-  <a routerLink="bit-predict">Bitcoin Predict</a>
+  <a routerLink="bitcoin">Bitcoin</a><span> | </span>
+  <a routerLink="stocks">Stocks</a><span> | </span>
+  <a routerLink="bit-predict">Bitcoin Predict</a><span> | </span>
   <a routerLink="stock-predict">Stock Predict</a>
-
+  <hr>
 </div>
 
 <router-outlet></router-outlet>
+
+</body>
 
 

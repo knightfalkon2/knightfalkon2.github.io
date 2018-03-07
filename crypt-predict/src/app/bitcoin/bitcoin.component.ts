@@ -13,6 +13,8 @@ export class BitcoinComponent implements OnInit {
   cBitCoin = [];
   stringBit = "";
   currencies = [];
+  symbol = "";
+  bitValue = 0;
   @ViewChild('output')output: string;
   constructor(private currentBitcoinService: CurrentBitcoinService) { }
 
@@ -38,8 +40,10 @@ export class BitcoinComponent implements OnInit {
   }
 
   selected(event) {
-
-    document.getElementById('output').innerHTML = JSON.stringify(this.cBitCoin[event]["last"]);
+    this.symbol = this.cBitCoin[event]["symbol"];
+    this.bitValue = this.cBitCoin[event]["last"];
+    this.bitValue.toFixed(2);
+    // document.getElementById('output').innerHTML = this.symbol + JSON.stringify(this.cBitCoin[event]["last"]);
   }
 
 
