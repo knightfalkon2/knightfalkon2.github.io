@@ -8,8 +8,16 @@ export class CurrentStocksService {
 
   constructor(private http: Http) { }
 
+  headers = new Headers();
+
+  createAuthorizationHeader(headers: Headers) {
+    headers.append("Access-Control-Allow-Origin", "*"); 
+  }
+
   getCurrentStocks() {
-    return  this.http.get('https://marketdata.websol.barchart.com/getQuote.json?apikey=1d7a3b06256b9bde9a218b59a82dd8f1&symbols=AAPL%2CGOOG&fields=fiftyTwoWkHigh%2CfiftyTwoWkHighDate%2CfiftyTwoWkLow%2CfiftyTwoWkLowDate&mode=I&jerq=false')  //change this when you find an api
+    let headers = new Headers();
+    this.createAuthorizationHeader(headers);
+    return  this.http.get('https://marketdata.websol.barchart.com/getQuote.json?apikey=1d7a3b06256b9bde9a218b59a82dd8f1&symbols=ZC*1,MMM,AXP,AAPL,BA,CAT,CVX,CSCO,KO,DIS,DWDP,XOM,GE,GS,HD,IBM,INTC,JNJ,JPM,MCD,MRK,MSFT,NKE,PFE,PG,TRV,UTX,UNH,VZ,V,WMT', {headers:headers})
     .map(
       (response: Response) => {
         const data = response.json();
